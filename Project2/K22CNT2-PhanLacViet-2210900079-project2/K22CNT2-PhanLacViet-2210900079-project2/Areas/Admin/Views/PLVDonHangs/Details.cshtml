@@ -1,0 +1,41 @@
+﻿@model K22CNT2_PhanLacViet_2210900079_project2.Models.DonHang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>Chi tiết DonHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TaiKhoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("sửa", "Edit", new { id = Model.MaDH.Trim() }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Quay lại", "Index", new { @class = "btn btn-success" })
+</p>

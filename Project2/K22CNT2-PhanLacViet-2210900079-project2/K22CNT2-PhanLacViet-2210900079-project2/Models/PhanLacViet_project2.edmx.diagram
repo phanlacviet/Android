@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4429bde9de9346f4ada63fa56a483aac" Name="Diagram1">
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.Admin" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.DonHang" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.KhachHang" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.NhaCC" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.SanPham" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PhanLacViet_K22CNT2_2210900079_project2Model.FK__DonHang__MaKH__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="PhanLacViet_K22CNT2_2210900079_project2Model.FK__SanPham__MaNCC__1920BF5C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PhanLacViet_K22CNT2_2210900079_project2Model.CTDH" Width="1.5" PointX="5.25" PointY="0.875" />
+        <AssociationConnector Association="PhanLacViet_K22CNT2_2210900079_project2Model.FK__CTDH__MaDH__5CD6CB2B" />
+        <AssociationConnector Association="PhanLacViet_K22CNT2_2210900079_project2Model.FK__CTDH__MaSp__5DCAEF64" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

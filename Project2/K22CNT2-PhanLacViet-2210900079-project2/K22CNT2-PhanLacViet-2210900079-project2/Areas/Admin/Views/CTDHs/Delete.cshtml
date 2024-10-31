@@ -1,0 +1,55 @@
+﻿@model K22CNT2_PhanLacViet_2210900079_project2.Models.CTDH
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Bạn có chắc chắn muốn xóa không?</h3>
+<div>
+    <h4>CTDH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaCa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaCa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonHang.MaKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonHang.MaKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanPham.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanPham.TenSP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a href="@Url.Action("Index")" class="btn btn-success">Quay lại</a>
+        </div>
+    }
+</div>
