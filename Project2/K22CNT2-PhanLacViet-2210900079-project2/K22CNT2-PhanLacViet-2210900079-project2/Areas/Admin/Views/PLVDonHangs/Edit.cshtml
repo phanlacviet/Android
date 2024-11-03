@@ -42,14 +42,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-warning" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Quay lại", "Index", new { @class = "btn btn-success" })
+    <a href="@Url.Action("Index")" class="btn btn-success">Quay lại</a>
 </div>
 
 @section Scripts {

@@ -4,7 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
 <h2>Bảng Đơn hàng</h2>
 
 <p>
@@ -13,35 +18,36 @@
 <table class="table table-bordered">
     <tr style="background-color: antiquewhite">
         <th>
-            @Html.DisplayNameFor(model => model.NgayDat)
+            <p>Ngày đặt</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThanhTien)
+            <p>Thành tiền</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.KhachHang.TaiKhoan)
+            <p>Mã Khách hàng</p>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayDat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThanhTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KhachHang.TaiKhoan)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDH.Trim() }, new { @class = "btn btn-warning" }) 
-            @Html.ActionLink("Details", "Details", new { id = item.MaDH.Trim() }, new { @class = "btn btn-success" }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDH.Trim() }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.MaKH)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaDH.Trim() }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDH.Trim() }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDH.Trim() }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
 <a href="@Url.Action("Index", "AdminIndex")" class="btn btn-success">Quay lại trang chủ</a>

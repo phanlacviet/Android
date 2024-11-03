@@ -116,6 +116,12 @@ namespace K22CNT2_PhanLacViet_2210900079_project2.Areas.Admin.Controllers
         {
             DonHang donHang = db.DonHangs.Find(id);
             db.DonHangs.Remove(donHang);
+            bool hasOrders = db.CTDHs.Any(db => db.MaDH == donHang.MaDH);
+            if (hasOrders)
+            {
+                TempData["ErrorMessage"] = "Không thể đơn hàng vì vẫn còn chi tiết đơn hàng có mã đơn hàng này!";
+                return RedirectToAction("Index");
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

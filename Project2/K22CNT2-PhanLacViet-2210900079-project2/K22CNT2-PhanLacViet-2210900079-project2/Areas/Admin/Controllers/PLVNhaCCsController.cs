@@ -111,6 +111,12 @@ namespace K22CNT2_PhanLacViet_2210900079_project2.Areas.Admin.Controllers
         {
             NhaCC nhaCC = db.NhaCCs.Find(id);
             db.NhaCCs.Remove(nhaCC);
+            bool hasOrders = db.SanPhams.Any(db => db.MaNCC == nhaCC.MaNCC);
+            if (hasOrders)
+            {
+                TempData["ErrorMessage"] = "Không thể nhà cung cấp vì vẫn còn sản phẩm liên kết với nhà cung cấp này";
+                return RedirectToAction("Index");
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

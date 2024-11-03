@@ -4,7 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
 <h2>Bảng sản phẩm</h2>
 
 <p>
@@ -13,16 +18,16 @@
 <table class="table table-bordered">
     <tr style="background-color: antiquewhite">
         <th>
-            @Html.DisplayNameFor(model => model.TenSP)
+            <p>Tên sản phẩm</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
+            <p>Số lượng</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GiaCa)
+            Giá cả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NhaCC.TenNCC)
+            Tên nhà cung cấp
         </th>
         <th></th>
     </tr>

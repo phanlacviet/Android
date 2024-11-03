@@ -116,6 +116,12 @@ namespace K22CNT2_PhanLacViet_2210900079_project2.Areas.Admin.Controllers
         {
             SanPham sanPham = db.SanPhams.Find(id);
             db.SanPhams.Remove(sanPham);
+            bool hasOrders = db.CTDHs.Any(db => db.MaSp == sanPham.MaSP);
+            if (hasOrders)
+            {
+                TempData["ErrorMessage"] = "Không thể sản phẩm vì vẫn còn chi tiết đơn hàng có mã sản phẩm này";
+                return RedirectToAction("Index");
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

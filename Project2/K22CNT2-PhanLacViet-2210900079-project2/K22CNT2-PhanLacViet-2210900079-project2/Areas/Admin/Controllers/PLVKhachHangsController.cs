@@ -110,6 +110,12 @@ namespace K22CNT2_PhanLacViet_2210900079_project2.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             KhachHang khachHang = db.KhachHangs.Find(id);
+            bool hasOrders = db.DonHangs.Any(db => db.MaKH == khachHang.MaKH);
+            if (hasOrders)
+            {
+                TempData["ErrorMessage"] = "Không thể xóa khách hàng vì khách còn đơn hàng!";
+                return RedirectToAction("Index"); 
+            }
             db.KhachHangs.Remove(khachHang);
             db.SaveChanges();
             return RedirectToAction("Index");
