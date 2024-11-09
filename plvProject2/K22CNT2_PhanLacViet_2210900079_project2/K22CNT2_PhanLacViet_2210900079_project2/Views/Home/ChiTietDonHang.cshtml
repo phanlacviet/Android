@@ -1,0 +1,37 @@
+﻿@model IEnumerable<K22CNT2_PhanLacViet_2210900079_project2.Models.CTDH>
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+<table class="table table-bordered">
+    <thead style="background-color: antiquewhite">
+        <tr>
+            <th>Số thứ tự</th>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá cả</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chiTiet in Model)
+        {
+            <tr>
+                <td>@chiTiet.STT</td>
+                <td>@chiTiet.MaSp</td>
+                <td>@chiTiet.TenSP</td>
+                <td>@chiTiet.GiaCa</td> <!-- Hiển thị giá cả theo định dạng tiền tệ -->
+                <td>@chiTiet.Soluong</td>
+                <td>@((decimal)chiTiet.Soluong * (decimal)chiTiet.GiaCa)</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<p>
+    <a href="@Url.Action("DonHang")" class="btn btn-success">Quay lại danh sách đơn hàng</a>
+</p>  

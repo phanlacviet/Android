@@ -1,0 +1,60 @@
+﻿@model List<K22CNT2_PhanLacViet_2210900079_project2.ModelView.CartItem>
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+
+<h2>ShoppingCart</h2>
+<table class="table table-bordered">
+    <tr style="background-color: antiquewhite">
+        <th>
+            <p>Mã sản phẩm</p>
+        </th>
+        <th>
+            <p>Mã Khách hàng</p>
+        </th>
+        <th>
+            <p>Ngày đặt</p>
+        </th>
+        <th>
+            <p>Số lượng</p>
+        </th>
+        <th>
+            <p>Giá cả</p>
+        </th>
+        <th>
+            <p>Thành tiền</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSP</td>
+            <td>@item.TenSP</td>
+            <td>@DateTime.Now.ToString("dd/MM/yyyy")</td> <!-- Ngày đặt hàng -->
+            <td>@item.SoLuong</td>
+            <td>@item.GiaCa</td>
+            <td>@(item.GiaCa * item.SoLuong)</td>
+            <td>
+                <a href="@Url.Action("RemoveShoppingCartItem", "ShoppingCart", new { id = item.MaSP })" class="btn btn-danger">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>
+@if (Model.Any())
+{
+    <h4>Tổng cộng: @Model.Sum(c => c.GiaCa * c.SoLuong).ToString("N0")</h4>
+
+    using (Html.BeginForm("Checkout", "ShoppingCart", FormMethod.Post))
+    {
+        <input type="submit" value="Thanh Toán" class="btn btn-primary" />
+
+    }
+}
+else
+{
+    <p>Giỏ hàng của bạn trống. Hãy thêm sản phẩm vào giỏ hàng.</p>
+}
+

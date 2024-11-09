@@ -1,0 +1,35 @@
+﻿@model IEnumerable<K22CNT2_PhanLacViet_2210900079_project2.Models.DonHang>
+
+@{
+    ViewBag.Title = "Danh sách đơn hàng";
+}
+
+<h2>Danh sách đơn hàng</h2>
+
+<table class="table table-bordered">
+    <thead style="background-color: antiquewhite">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt</th>
+            <th>Thành tiền</th>
+            <th>Chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donHang in Model)
+        {
+            <tr>
+                <td>@donHang.MaDH</td>
+                <td>@donHang.NgayDat.ToString("dd/MM/yyyy")</td>
+                <td>@donHang.ThanhTien</td>
+                <td>
+                    <a href="@Url.Action("ChiTietDonHang", new { id = donHang.MaDH.Trim() })" class="btn btn-info">Xem chi tiết</a>
+                    <form action="@Url.Action("XoaDonHang", new { id = donHang.MaDH.Trim() })" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?');">Xóa đơn hàng</button>
+                    </form>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

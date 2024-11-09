@@ -1,0 +1,52 @@
+﻿@model IEnumerable<K22CNT2_PhanLacViet_2210900079_project2.Models.DonHang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<h2>Bảng Đơn hàng</h2>
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-success">Thêm mới</a>
+</p>
+<table class="table table-bordered">
+    <tr style="background-color: antiquewhite">
+        <th>
+            <p>Ngày đặt</p>
+        </th>
+        <th>
+            <p>Thành tiền</p>
+        </th>
+        <th>
+            <p>Mã Khách hàng</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.TaiKhoan)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaDH.Trim() }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDH.Trim() }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDH.Trim() }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("Index", "AdminIndex")" class="btn btn-success">Quay lại trang chủ</a>
