@@ -1,0 +1,81 @@
+## Overview: Ngôn ngữ lập trình javascript
+1.Cú pháp
+    - Nhúng trong html:
+        + thuộc tính sự kiện của thẻ:
+            onClick, onChange
+        + Thẻ script
+
+        + file: js
+2. Các khái niệm cơ bản trong ngôn ngữ lập trình:
+    - Biến, hàng, kiểu dữ liệu, toán tử, toán hạng, phép toán, biểu thức, câu lệnh, khối lệnh,...
+3. I/O 
+4. Các cấu trúc điều khiên (3 loại)
+4.1. Lựa chọn / rẽ nhánh
+4.1.1 if (4 dạng if)
+    a. if đơn
+        if(điều kiện){
+            câu lệnh điều kiện đúng
+        }
+    b. if đầy đủ
+        if(điều kiện 1){
+            câu lệnh nếu điều kiện 1 đúng
+        }else if(đk 2){
+            câu lệnh nếu dk2 đúng
+        }
+    c. if bậc thang
+        if(dk1){
+            câu lệnh nếu dk 1 đúng
+        }else if(dk2){
+            câu lệnh nếu dk 2 đúng
+        }...
+    d. if nested
+        if(dk1){
+            câu lệnh nếu dk1 đúng
+            if(dk2)(...)
+        }
+4.1.2. switch
+    switch(expression){
+        case value1:
+            statement;
+            break;
+        case value2:
+            statement;
+            break;
+        ...
+        [default:
+            statement;
+            break;
+        ]
+    }
+
+4.2. Loop (cấu trúc lập)
+4.2.1: lặp for(4 dạng)
+    a. for đầy đủ:
+        for(intial ; condtion ; step){
+            statement block;
+        }
+    b. for khuyết
+        for(intial ; condtion ; step)(có thể thiếu 1 trong 3 thành phần này hoặc toàn bộ){
+            statement block;
+        }
+    c. for nobody
+        for(intial, statement ; condtion ; step, statement)
+4.2.2: lặp while
+    while(condtion){
+        statement block;
+    }
+4.2.3: do...while
+    do{
+        statement block
+    }while(condtion)
+4.3. lệnh nhảy
+    break;
+    continue:
+    return;
+    ...
+5. Khái niệm về mảng
+    mảng 1 chiều, nhiều chiều
+6. Khái niệm xử lý xâu (chuỗi)
+7. Hàm
+8. Khái niệm lập trình hướng đối tượng trong JS
+9. các tính năng nâng cao
